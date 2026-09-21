@@ -2,55 +2,11 @@
    BURST — Balanced Urban Recommenders for Sustainable Mobility Transitions
    ========================================================================== */
 
+/* Dark is the default theme. Light is opt-in via data-theme="light",
+   which the toggle sets and an inline script in <head> restores. */
 :root {
-  --ink:        #0d1330;
-  --ink-soft:   #3d4668;
-  --ink-faint:  #6b7495;
-  --bg:         #ffffff;
-  --bg-alt:     #f5f6fb;
-  --bg-sunk:    #eceefa;
-  --line:       #dfe2f0;
+  color-scheme: dark;
 
-  --brand:      #4338ca;
-  --brand-soft: #6366f1;
-  --teal:       #0d9488;
-  --amber:      #d97706;
-  --rose:       #be123c;
-
-  --on-brand:   #ffffff;
-
-  --radius:     14px;
-  --radius-sm:  8px;
-  --shadow:     0 1px 2px rgba(13, 19, 48, .06), 0 8px 24px -12px rgba(13, 19, 48, .18);
-  --maxw:       1080px;
-
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ink:        #eaecf8;
-    --ink-soft:   #b2b8d4;
-    --ink-faint:  #848bad;
-    --bg:         #0a0e1f;
-    --bg-alt:     #111731;
-    --bg-sunk:    #161d3c;
-    --line:       #242c50;
-
-    --brand:      #8b8dfc;
-    --brand-soft: #a5a6ff;
-    --teal:       #2dd4bf;
-    --amber:      #fbbf24;
-    --rose:       #fb7185;
-
-    --on-brand:   #0a0e1f;
-    --shadow:     0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px -14px rgba(0, 0, 0, .8);
-  }
-}
-
-:root[data-theme="dark"] {
   --ink:        #eaecf8;
   --ink-soft:   #b2b8d4;
   --ink-faint:  #848bad;
@@ -67,6 +23,35 @@
 
   --on-brand:   #0a0e1f;
   --shadow:     0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px -14px rgba(0, 0, 0, .8);
+
+  --radius:     14px;
+  --radius-sm:  8px;
+  --maxw:       1080px;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ink:        #0d1330;
+  --ink-soft:   #3d4668;
+  --ink-faint:  #6b7495;
+  --bg:         #ffffff;
+  --bg-alt:     #f5f6fb;
+  --bg-sunk:    #eceefa;
+  --line:       #dfe2f0;
+
+  --brand:      #4338ca;
+  --brand-soft: #6366f1;
+  --teal:       #0d9488;
+  --amber:      #d97706;
+  --rose:       #be123c;
+
+  --on-brand:   #ffffff;
+  --shadow:     0 1px 2px rgba(13, 19, 48, .06), 0 8px 24px -12px rgba(13, 19, 48, .18);
 }
 
 /* --------------------------------------------------------------- base --- */
@@ -143,13 +128,10 @@ abbr[title] { text-decoration: underline dotted; cursor: help; }
 }
 .theme-toggle:hover { color: var(--ink); border-color: var(--brand); }
 
-.theme-toggle .moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle .moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .sun  { display: none; }
-  :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
-}
+.theme-toggle .sun  { display: none; }
+.theme-toggle .moon { display: block; }
+:root[data-theme="light"] .theme-toggle .sun  { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
 
 .nav-toggle { display: none; }
 
@@ -421,3 +403,14 @@ section + section { border-top: 1px solid var(--line); }
   0%, 100% { transform: scale(1);    opacity: .18; }
   50%      { transform: scale(1.22); opacity: .06; }
 }
+
+/* ------------------------------------------------- empty state -------- */
+/* Placeholder for sections that will fill up as the project produces
+   outputs (publications, news). Remove once real entries land. */
+.empty-state {
+  display: flex; gap: 1rem; align-items: flex-start;
+  border-style: dashed;
+}
+.empty-state svg { flex: none; margin-top: .2rem; color: var(--ink-faint); }
+.empty-state h3 { margin-bottom: .3rem; color: var(--ink-soft); }
+.empty-state p  { margin-bottom: 0; font-size: .93rem; color: var(--ink-faint); max-width: 64ch; }

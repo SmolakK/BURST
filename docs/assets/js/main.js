@@ -5,21 +5,17 @@
   var root = document.documentElement;
 
   /* ------------------------------------------------------------ theme -- */
+  /* The site is dark by default; only an explicit data-theme="light"
+     switches it. A saved choice is applied by the inline script in <head>
+     so the page never paints the wrong theme first. */
   var STORE = 'burst-theme';
-  try {
-    var saved = localStorage.getItem(STORE);
-    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-  } catch (e) { /* private mode, blocked storage — fall back to the OS setting */ }
 
   var themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
-      var dark = root.getAttribute('data-theme') === 'dark' ||
-                 (!root.hasAttribute('data-theme') &&
-                  window.matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = dark ? 'light' : 'dark';
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', next);
-      try { localStorage.setItem(STORE, next); } catch (e) { /* ignore */ }
+      try { localStorage.setItem(STORE, next); } catch (e) { /* blocked storage */ }
     });
   }
 
