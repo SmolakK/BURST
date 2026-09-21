@@ -286,9 +286,9 @@ section + section { border-top: 1px solid var(--line); }
 .tl-track { position: relative; height: 26px; background: var(--bg-sunk); border-radius: 999px; overflow: hidden; }
 .tl-bar { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--brand), var(--brand-soft)); }
 .tl-bar.teal  { background: linear-gradient(90deg, var(--teal), color-mix(in srgb, var(--teal) 55%, var(--brand))); }
-.tl-bar.amber { background: linear-gradient(90deg, var(--amber), color-mix(in srgb, var(--amber) 60%, var(--rose))); }
+.tl-bar.amber { background: linear-gradient(90deg, var(--amber), color-mix(in srgb, var(--amber) 60%, var(--teal))); }
 .tl-bar.wide  { background: linear-gradient(90deg, color-mix(in srgb, var(--brand) 45%, var(--bg-sunk)), color-mix(in srgb, var(--teal) 45%, var(--bg-sunk))); }
-.tl-now { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--rose); z-index: 2; }
+.tl-now { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink); z-index: 2; }
 .tl-scale {
   display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 1rem;
   margin-top: .8rem; font-family: var(--mono); font-size: .7rem; color: var(--ink-faint);
