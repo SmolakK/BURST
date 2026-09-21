@@ -257,7 +257,7 @@ section + section { border-top: 1px solid var(--line); }
 
 .effects { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
 .effects li { display: flex; gap: .75rem; align-items: flex-start; color: var(--ink-soft); }
-.effects svg { flex: none; margin-top: .35rem; color: var(--rose); }
+.effects svg { flex: none; margin-top: .35rem; color: var(--ink); }
 
 .pull {
   border-left: 3px solid var(--teal); padding: .2rem 0 .2rem 1.1rem;
